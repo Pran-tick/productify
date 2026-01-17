@@ -9,7 +9,7 @@ import productRoutes from './routes/productRoutes'
 const app = express();
 
 
-app.use(cors({origin: process.env.FRONTEND_URL}));
+app.use(cors({origin: process.env.FRONTEND_URL, credentials:true})); //allow requests from frontend server with cookies so that we can authenticate the user.
 
 app.use(clerkMiddleware()) //auth obj will be attached to the req obj.
 app.use(express.json()); //parses json request bodies
